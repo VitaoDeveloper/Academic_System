@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const email = ref('')
+const role = ref('aluno')
 const password = ref('')
 
 function handleLogin() {
@@ -23,6 +24,15 @@ function handleLogin() {
         <div class="field">
           <label for="email">Email</label>
           <input id="email" v-model="email" type="email" placeholder="you@example.com" required />
+        </div>
+        <div class="field">
+          <label for="role">Role</label>
+          <select id="role" v-model="role" required>
+            <option value="aluno">Aluno</option>
+            <option value="professor">Professor</option>
+            <option value="coordenador">Coordenador</option>
+            <option value="administrador">Administrador</option>
+          </select>
         </div>
         <div class="field">
           <label for="password">Password</label>
