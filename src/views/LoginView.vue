@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+import LangSwitcher from '../components/LangSwitcher.vue'
 
+const { t } = useI18n()
 const router = useRouter()
 const email = ref('')
 const role = ref('aluno')
@@ -15,34 +18,35 @@ function handleLogin() {
 
 <template>
   <div class="auth-container">
+    <LangSwitcher />
     <div class="auth-card">
       <div class="auth-header">
-        <h1>Welcome back</h1>
-        <p>Sign in to your account</p>
+        <h1>{{ t('login.title') }}</h1>
+        <p>{{ t('login.subtitle') }}</p>
       </div>
       <form class="auth-form" @submit.prevent="handleLogin">
         <div class="field">
-          <label for="email">Email</label>
-          <input id="email" v-model="email" type="email" placeholder="you@example.com" required />
+          <label for="email">{{ t('login.email') }}</label>
+          <input id="email" v-model="email" type="email" :placeholder="t('login.emailPlaceholder')" required />
         </div>
         <div class="field">
-          <label for="role">Role</label>
+          <label for="role">{{ t('login.role') }}</label>
           <select id="role" v-model="role" required>
-            <option value="aluno">Aluno</option>
-            <option value="professor">Professor</option>
-            <option value="coordenador">Coordenador</option>
-            <option value="administrador">Administrador</option>
+            <option value="aluno">{{ t('login.roles.aluno') }}</option>
+            <option value="professor">{{ t('login.roles.professor') }}</option>
+            <option value="coordenador">{{ t('login.roles.coordenador') }}</option>
+            <option value="administrador">{{ t('login.roles.administrador') }}</option>
           </select>
         </div>
         <div class="field">
-          <label for="password">Password</label>
-          <input id="password" v-model="password" type="password" placeholder="••••••••" required />
+          <label for="password">{{ t('login.password') }}</label>
+          <input id="password" v-model="password" type="password" :placeholder="t('login.passwordPlaceholder')" required />
         </div>
-        <button type="submit" class="btn-primary">Sign in</button>
+        <button type="submit" class="btn-primary">{{ t('login.submit') }}</button>
       </form>
       <p class="auth-footer">
-        Don't have an account?
-        <router-link to="/register">Create one</router-link>
+        {{ t('login.noAccount') }}
+        <router-link to="/register">{{ t('login.createAccount') }}</router-link>
       </p>
     </div>
   </div>

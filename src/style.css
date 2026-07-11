@@ -68,6 +68,27 @@ a:hover {
   display: grid;
   place-items: center;
   padding: 24px;
+  position: relative;
+}
+
+.lang-switcher {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: var(--sans);
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+.lang-switcher:hover {
+  background: var(--primary-bg);
+  color: var(--primary);
 }
 
 .auth-card {
@@ -182,6 +203,12 @@ a:hover {
   font-weight: 600;
   color: var(--text-heading);
   letter-spacing: -0.02em;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .btn-ghost {

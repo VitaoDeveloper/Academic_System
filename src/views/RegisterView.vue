@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+import LangSwitcher from '../components/LangSwitcher.vue'
 
+const { t } = useI18n()
 const router = useRouter()
 const name = ref('')
 const email = ref('')
@@ -16,33 +19,34 @@ function handleRegister() {
 
 <template>
   <div class="auth-container">
+    <LangSwitcher />
     <div class="auth-card">
       <div class="auth-header">
-        <h1>Create account</h1>
-        <p>Get started for free</p>
+        <h1>{{ t('register.title') }}</h1>
+        <p>{{ t('register.subtitle') }}</p>
       </div>
       <form class="auth-form" @submit.prevent="handleRegister">
         <div class="field">
-          <label for="name">Full name</label>
-          <input id="name" v-model="name" type="text" placeholder="John Doe" required />
+          <label for="name">{{ t('register.name') }}</label>
+          <input id="name" v-model="name" type="text" :placeholder="t('register.namePlaceholder')" required />
         </div>
         <div class="field">
-          <label for="email">Email</label>
-          <input id="email" v-model="email" type="email" placeholder="you@example.com" required />
+          <label for="email">{{ t('register.email') }}</label>
+          <input id="email" v-model="email" type="email" :placeholder="t('register.emailPlaceholder')" required />
         </div>
         <div class="field">
-          <label for="password">Password</label>
-          <input id="password" v-model="password" type="password" placeholder="••••••••" required />
+          <label for="password">{{ t('register.password') }}</label>
+          <input id="password" v-model="password" type="password" :placeholder="t('register.passwordPlaceholder')" required />
         </div>
         <div class="field">
-          <label for="confirmPassword">Confirm password</label>
-          <input id="confirmPassword" v-model="confirmPassword" type="password" placeholder="••••••••" required />
+          <label for="confirmPassword">{{ t('register.confirmPassword') }}</label>
+          <input id="confirmPassword" v-model="confirmPassword" type="password" :placeholder="t('register.passwordPlaceholder')" required />
         </div>
-        <button type="submit" class="btn-primary">Create account</button>
+        <button type="submit" class="btn-primary">{{ t('register.submit') }}</button>
       </form>
       <p class="auth-footer">
-        Already have an account?
-        <router-link to="/login">Sign in</router-link>
+        {{ t('register.hasAccount') }}
+        <router-link to="/login">{{ t('register.signIn') }}</router-link>
       </p>
     </div>
   </div>
