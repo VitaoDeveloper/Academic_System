@@ -12,7 +12,7 @@
     "createAccount": "Create one",
     "roles": {
       "aluno": "Student",
-      "professor": "Professor",
+      "professor": "Teacher",
       "coordenador": "Coordinator",
       "administrador": "Administrator"
     }
