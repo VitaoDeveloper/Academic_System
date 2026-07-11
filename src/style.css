@@ -68,15 +68,14 @@ a:hover {
   display: grid;
   place-items: center;
   padding: 24px;
-  position: relative;
 }
 
 .lang-switcher {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  padding: 4px 10px;
-  font-size: 12px;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 6px 12px;
+  font-size: 13px;
   font-weight: 500;
   font-family: var(--sans);
   color: var(--text);
@@ -84,6 +83,7 @@ a:hover {
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   cursor: pointer;
+  z-index: 100;
   transition: background var(--transition), color var(--transition);
 }
 .lang-switcher:hover {
@@ -203,12 +203,6 @@ a:hover {
   font-weight: 600;
   color: var(--text-heading);
   letter-spacing: -0.02em;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 12px;
 }
 
 .btn-ghost {

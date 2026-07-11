@@ -3,13 +3,16 @@ import { useI18n } from 'vue-i18n'
 
 const { locale } = useI18n()
 
-function toggle() {
-  locale.value = locale.value === 'en' ? 'pt' : 'en'
-}
+const languages = [
+  { code: 'en', label: 'English' },
+  { code: 'pt', label: 'Portugues' },
+]
 </script>
 
 <template>
-  <button class="lang-switcher" @click="toggle">
-    {{ locale === 'en' ? 'PT' : 'EN' }}
-  </button>
+  <select class="lang-switcher" v-model="locale">
+    <option v-for="lang in languages" :key="lang.code" :value="lang.code">
+      {{ lang.label }}
+    </option>
+  </select>
 </template>

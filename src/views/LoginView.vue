@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import LangSwitcher from '../components/LangSwitcher.vue'
 
 const { t } = useI18n()
 const router = useRouter()
@@ -18,7 +17,6 @@ function handleLogin() {
 
 <template>
   <div class="auth-container">
-    <LangSwitcher />
     <div class="auth-card">
       <div class="auth-header">
         <h1>{{ t('login.title') }}</h1>
