@@ -24,17 +24,17 @@ function handleLogin() {
       </div>
       <form class="auth-form" @submit.prevent="handleLogin">
         <div class="field">
-          <label for="email">{{ t('login.email') }}</label>
-          <input id="email" v-model="email" type="email" :placeholder="t('login.emailPlaceholder')" required />
-        </div>
-        <div class="field">
-          <label for="role">{{ t('login.role') }}</label>
+          <label for="role"></label>
           <select id="role" v-model="role" required>
             <option value="aluno">{{ t('login.roles.aluno') }}</option>
             <option value="professor">{{ t('login.roles.professor') }}</option>
             <option value="coordenador">{{ t('login.roles.coordenador') }}</option>
             <option value="administrador">{{ t('login.roles.administrador') }}</option>
           </select>
+        </div>
+        <div class="field">
+          <label for="email">{{ t('login.email') }}</label>
+          <input id="email" v-model="email" type="email" :placeholder="t('login.emailPlaceholder')" required />
         </div>
         <div class="field">
           <label for="password">{{ t('login.password') }}</label>
